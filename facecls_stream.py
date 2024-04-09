@@ -32,7 +32,7 @@ def predict_expression(image):
     prediction = model.predict(preprocessed_img)
     return np.argmax(prediction, axis=1), prediction
 
-st.title("Facial Expression Recognition")
+st.title("Facial Expression Recognition with EfficientNet Transfer Learning")
 
 
 
