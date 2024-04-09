@@ -1,0 +1,5 @@
+venv/
+env/
+models/
+gen_faces/
+.DS_Store
