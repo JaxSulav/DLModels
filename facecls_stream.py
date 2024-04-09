@@ -4,6 +4,16 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 import PIL.Image as Image
+import gdown
+import os
+
+os.makedirs("models", exist_ok=True)
+if not os.path.isfile('models/face_cls_3.2.h5'):
+    url = 'https://drive.google.com/uc?export=download&id=1V_0ywjuNS1KZTnGQ4Mu7XzHBBIOreFSl'
+    output = 'models/face_cls_3.2.h5'
+    gdown.download(url, output, quiet=False)
+else:
+    print("Model already exists")
 
 model = load_model('models/face_cls_3.2.h5')
 label_maps = {0: 'Ahegao', 1: 'Angry', 2: 'Happy', 3: 'Neutral', 4: 'Sad', 5: 'Surprise'}
@@ -24,6 +34,8 @@ def predict_expression(image):
     return np.argmax(prediction, axis=1), prediction
 
 st.title("Facial Expression Recognition")
+
+
 
 uploaded_file = st.file_uploader("Upload an image...", type=['jpg', 'png', 'jpeg'])
 if uploaded_file is not None:
