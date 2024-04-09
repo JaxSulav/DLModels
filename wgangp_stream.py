@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 from torchvision.utils import save_image
 import os
+import gdown
 from PIL import Image
 
 class MyGenerator(nn.Module):
@@ -58,7 +59,15 @@ my_generator = MyGenerator(
     params["bias_gen"]
 ).to(device)
 
-checkpoint_path = 'models/checkpoint_epoch_215.pt'
+os.makedirs("models", exist_ok=True)
+if not os.path.isfile('models/wgangp1.2.pt'):
+    url = 'https://drive.google.com/uc?export=download&id=1gR5G_KFWP1Hl8iaHl4w2gLcqmA91raiZ'
+    output = 'models/wgangp1.2.pt'
+    gdown.download(url, output, quiet=False)
+else:
+    print("Model already exists")
+
+checkpoint_path = 'models/wgangp1.2.pt'
 checkpoint = torch.load(checkpoint_path, map_location=device)
 my_generator.load_state_dict(checkpoint['generator_state_dict'])
 
