@@ -29,7 +29,7 @@ if uploaded_file is not None:
     img = image.load_img(uploaded_file, target_size=(64, 64))
     st.write("")
     st.write("Classifying...")
-    label_maps = {0: 'Ahegao', 1: 'Angry', 2: 'Happy', 3: 'Neutral', 4: 'Sad', 5: 'Surprise'}
+    label_maps = {0: 'Angry', 1: 'Ahegao', 2: 'Happy', 3: 'Neutral', 4: 'Sad', 5: 'Surprise'}
     result = model.predict(prepare_image(img))
     exp = label_maps[np.argmax(result)]
     st.write(f'Predicted class for the image: {exp}')
