@@ -1,13 +1,13 @@
-# Facial Expression Classifier Collection
+# Deep Learning Models Collection
 
-This repository hosts three innovative Streamlit applications designed for facial expression classification and image generation. Each app utilizes different deep learning models to perform tasks ranging from facial expression recognition to generative adversarial network-based image production.
+This repository has three Streamlit applications for facial expression classification and image generation. Each app has different deep learning models to perform tasks from facial expression recognition to WGAN with GP image generation.
 
 ## Apps Overview
 
 1. **Face Expression Classifier** (`facecls_stream.py`)
-   - Recognizes facial expressions from uploaded images.
+   - Recognizes facial expressions from uploaded images using transfer learning on EfficientNet.
 2. **Face Expression Classifier with CNN** (`face_clscnn_stream.py`)
-   - Advanced model using convolutional neural networks for more accurate expression recognition.
+   - Advanced model using convolutional neural networks for expression recognition.
 3. **WGANGP Streamlit App** (`wgangp_stream.py`)
    - Utilizes a Wasserstein GAN with gradient penalty to generate new facial images based on learned distributions.
 
