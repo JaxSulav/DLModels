@@ -33,4 +33,4 @@ if uploaded_file is not None:
     result = model.predict(prepare_image(img))
     exp = label_maps[np.argmax(result)]
     st.write(f'Predicted class for the image: {exp}')
-    st.image(img, caption='Uploaded Image', use_column_width=True)
+    st.image(img, caption='Uploaded Image')
